@@ -1,0 +1,13 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background: Deep Cobalt Blue Gear Circle -->
+  <circle cx="256" cy="256" r="240" fill="#0047AB" stroke="#FFD700" stroke-width="10" />
+  
+  <!-- Faded Bitcoin Symbol in Background -->
+  <text x="50%" y="55%" font-family="Arial" font-size="300" fill="rgba(255, 215, 0, 0.15)" text-anchor="middle" dominant-baseline="middle">₿</text>
+  
+  <!-- Sharp Geometric Golden 'N' -->
+  <path d="M150 400 L150 112 L220 112 L310 280 L310 112 L380 112 L380 400 L310 400 L220 230 L220 400 Z" fill="#FFD700" filter="drop-shadow(0 0 10px rgba(0,0,0,0.5))" />
+  
+  <!-- Slogan Text (Optional in Icon) -->
+  <text x="50%" y="470" font-family="monospace" font-size="24" fill="#FFD700" text-anchor="middle">SOVEREIGNTY OF NAJEEB</text>
+</svg>

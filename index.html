@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Najeeb Network | السيادة الرقمية الجديدة</title>
+    <style>
+        :root { --gold: #FFD700; --blue: #0047AB; --dark: #050505; --white: #ffffff; }
+        body { background: var(--dark); color: var(--white); font-family: 'Segoe UI', Arial, sans-serif; margin: 0; }
+        .hero { height: 100vh; background: radial-gradient(circle, var(--blue), var(--dark)); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 20px; }
+        .hero img { width: 150px; margin-bottom: 20px; animation: glow 2s infinite alternate; }
+        @keyframes glow { from { filter: drop-shadow(0 0 10px var(--gold)); } to { filter: drop-shadow(0 0 30px var(--gold)); } }
+        .hero h1 { font-size: 3.5em; color: var(--gold); margin: 10px 0; }
+        .hero p { font-size: 1.5em; max-width: 800px; line-height: 1.6; }
+        .btn-group { margin-top: 30px; }
+        .btn { padding: 15px 40px; border-radius: 50px; text-decoration: none; font-weight: bold; margin: 10px; transition: 0.3s; display: inline-block; }
+        .btn-gold { background: var(--gold); color: black; }
+        .btn-outline { border: 2px solid var(--gold); color: var(--gold); }
+        .btn:hover { transform: scale(1.1); }
+        .features { padding: 80px 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; max-width: 1200px; margin: auto; }
+        .feature-card { background: rgba(255,255,255,0.05); padding: 30px; border-radius: 15px; border: 1px solid rgba(255,215,0,0.2); text-align: center; }
+        .feature-card h3 { color: var(--gold); font-size: 1.8em; }
+        footer { padding: 40px; text-align: center; border-top: 1px solid rgba(255,215,0,0.3); color: var(--gold); font-size: 0.9em; }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <img src="NAJ_logo.svg" alt="Logo">
+        <h1>NAJEEB NETWORK</h1>
+        <p>مستقبل التمويل السيادي. أول شبكة بلوكشين في العالم تعادل قيمتها قيمة البيتكوين برمجياً، وبسرعة تتجاوز الحدود.</p>
+        <div class="btn-group">
+            <a href="explorer_v2.html" class="btn btn-gold">مستكشف الشبكة</a>
+            <a href="../docs/WHITEPAPER_NAJ.md" class="btn btn-outline">الورقة البيضاء</a>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="feature-card">
+            <h3>قيمة البيتكوين</h3>
+            <p>عملة NAJ مربوطة رياضياً بـ BTC، مما يمنحها القيمة الأعلى في السوق العالمي.</p>
+        </div>
+        <div class="feature-card">
+            <h3>سرعة فائقة</h3>
+            <p>معالجة تصل إلى 100,000 معاملة في الثانية مع تأكيد فوري في ثانية واحدة.</p>
+        </div>
+        <div class="feature-card">
+            <h3>سيادة مطلقة</h3>
+            <p>نظام تشفير "المالك الماستر" يضمن أمان الأصول واستعادة المفاتيح بالمنطق الرياضي.</p>
+        </div>
+    </section>
+
+    <footer>
+        جميع الحقوق محفوظة لشبكة نجيب السيادية © 2026 | مدعوم بذكاء نجيب الاصطناعي
+    </footer>
+</body>
+</html>
