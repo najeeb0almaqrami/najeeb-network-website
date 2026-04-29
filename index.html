@@ -58,3 +58,20 @@
 </body>
 </html>
 EOF
+<script>
+async function addNetwork() {
+    const params = [{
+        chainId: '0x1E50', // 7760 in Hex
+        chainName: 'Najeeb Sovereign Network',
+        nativeCurrency: { name: 'Najeeb Asset', symbol: 'NAJ', decimals: 18 },
+        rpcUrls: ['https://satisfied-hereby-surveys-perhaps.trycloudflare.com'],
+        blockExplorerUrls: ['https://najeeb0almaqrami.github.io/najeeb-network-website/explorer_v2.html']
+    }];
+    try {
+        await window.ethereum.request({ method: 'wallet_addEthereumChain', params });
+        alert("تمت إضافة شبكة نجيب بنجاح! سيادتك المالية تبدأ الآن.");
+    } catch (e) {
+        alert("فشل في إضافة الشبكة: " + e.message);
+    }
+}
+</script>
