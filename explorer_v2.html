@@ -1,89 +1,87 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Najeeb Network | Sovereign Explorer</title>
-    <style>
-        :root { --gold: #FFD700; --blue: #0047AB; --dark: #050505; }
-        body { background: var(--dark); color: white; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; overflow-x: hidden; }
-        header { background: linear-gradient(to right, var(--blue), var(--dark)); padding: 20px; border-bottom: 2px solid var(--gold); display: flex; align-items: center; justify-content: space-between; }
-        .logo-section { display: flex; align-items: center; }
-        .logo-section img { width: 60px; height: 60px; margin-right: 15px; }
-        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; padding: 20px; }
-        .stat-card { background: rgba(255, 255, 255, 0.05); border-left: 4px solid var(--gold); padding: 15px; border-radius: 5px; }
-        .stat-card h3 { color: var(--gold); margin: 0 0 10px 0; font-size: 0.9em; }
-        .stat-card p { font-size: 1.5em; margin: 0; font-weight: bold; }
-        .search-section { padding: 40px; text-align: center; background: url('https://www.transparenttextures.com/patterns/carbon-fibre.png'); }
-        .search-box { width: 60%; padding: 15px; border-radius: 30px; border: 2px solid var(--gold); background: rgba(0,0,0,0.7); color: white; font-size: 1.1em; outline: none; }
-        .btn-search { padding: 15px 30px; border-radius: 30px; background: var(--gold); color: black; border: none; cursor: pointer; font-weight: bold; margin-left: -60px; }
-        .live-feed { padding: 20px; }
-        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-        th, td { padding: 15px; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.1); }
-        th { color: var(--gold); }
-        .glory-footer { text-align: center; padding: 40px; color: var(--gold); font-size: 0.8em; letter-spacing: 2px; }
-    </style>
+    <title>المستكشف السيادي | نيفيج نتورك</title>
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
     <header>
-        <div class="logo-section">
-            <img src="NAJ_logo.svg" alt="NAJ Logo">
-            <div>
-                <h1 style="margin:0; font-size: 1.5em;">NAJEEB NETWORK</h1>
-                <small style="color: var(--gold);">SOVEREIGN BLOCKCHAIN PROTOCOL</small>
-            </div>
+        <div class="logo-container">
+            <img src="NAJ_exclusive_logo.svg" alt="NAJ Exclusive Logo">
+            <span style="font-weight:bold; color:var(--gold); font-size:1.2rem">NAJEEB NETWORK</span>
         </div>
-        <div id="clock" style="font-family: monospace;"></div>
+        <nav>
+            <ul>
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="about.html">رؤيتنا</a></li>
+                <li><a href="whitepaper.html">الورقة البيضاء</a></li>
+                <li><a href="download.html">التحميل</a></li>
+                <li><a href="explorer_v2.html">المستكشف</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <div class="stats-grid">
-        <div class="stat-card"><h3>سعر العملة (NAJ)</h3><p id="price">Calculating...</p></div>
-        <div class="stat-card"><h3>Chain ID</h3><p>7760</p></div>
-        <div class="stat-card"><h3>إجمالي العرض</h3><p>111,000,000 NAJ</p></div>
-        <div class="stat-card"><h3>الحالة</h3><p style="color: #0f0;">Operational</p></div>
+    <section class="hero-section" style="padding: 40px 5%">
+        <h1 style="color:var(--gold); font-size: 2.5rem;">المستكشف السيادي (Live)</h1>
+        <p>مراقبة الشبكة والقيمة السوقية المربوطة بالبيتكوين في الوقت الفعلي.</p>
+    </section>
+
+    <div class="feature-grid" style="padding-top: 0">
+        <div class="card" style="border-top: 3px solid var(--gold)">
+            <h3>سعر NAJ اللحظي</h3>
+            <p id="price" style="font-size: 1.8rem; font-weight: bold;">جاري الجلب...</p>
+            <small style="color: var(--gold-dim)">1 NAJ = 1 BTC</small>
+        </div>
+        <div class="card">
+            <h3>حالة الشبكة</h3>
+            <p style="color: #0f0; font-size: 1.5rem;">نشطة ومؤمنة</p>
+            <small>Chain ID: 7760</small>
+        </div>
     </div>
 
-    <div class="search-section">
-        <input type="text" class="search-box" id="searchInput" placeholder="ابحث عن عنوان، معاملة، أو كتلة...">
-        <button class="btn-search" onclick="search()">بحث</button>
-    </div>
-
-    <div class="live-feed">
-        <h2>آخر العمليات (Live Feed)</h2>
-        <table>
-            <thead><tr><th>الكتلة</th><th>الوقت</th><th>المدقق</th><th>المكافأة</th><th>الحالة</th></tr></thead>
-            <tbody id="blockTable">
-                <tr><td>#0</td><td>Genesis</td><td>Master Validator</td><td>100M NAJ</td><td><span style="color: #0f0; border: 1px solid #0f0; padding: 2px 5px; font-size: 0.8em; border-radius: 3px;">✓ Ownership Verified</span></td></tr>
-            </tbody>
-        </table>
-    </div>
-
-    <div class="glory-footer">
-        POWERED BY NAJEEB AGI & SOVEREIGN KERNEL | 2026 ©
+    <div style="padding: 20px 5%;">
+        <div class="card" style="text-align: right; background: rgba(0,0,0,0.5)">
+            <h2 style="color:var(--gold)">آخر الكتل المؤكدة</h2>
+            <table style="width: 100%; border-collapse: collapse; margin-top: 20px; color: white;">
+                <thead>
+                    <tr style="border-bottom: 2px solid var(--gold)">
+                        <th style="padding: 10px; text-align: right;">الكتلة</th>
+                        <th style="padding: 10px; text-align: right;">المدقق</th>
+                        <th style="padding: 10px; text-align: right;">المكافأة</th>
+                        <th style="padding: 10px; text-align: right;">الحالة</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="padding: 15px;">#0 (Genesis)</td>
+                        <td>Master Validator</td>
+                        <td>100,000,000 NAJ</td>
+                        <td><span style="color: #0f0;">✓ تم التحقق</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 
     <script>
-        async function updateStats() {
+        async function fetchBTC() {
             try {
                 const r = await fetch('https://api.binance.com/api/v3/ticker/price?symbol=BTCUSDT');
                 const data = await r.json();
-                const price = parseFloat(data.price).toLocaleString();
-                document.getElementById('price').innerText = `1 NAJ = $${price}`;
-            } catch (e) { document.getElementById('price').innerText = "1 NAJ = 1 BTC"; }
-            document.getElementById('clock').innerText = new Date().toUTCString();
-        }
-
-        function search() {
-            const val = document.getElementById('searchInput').value;
-            if(val.startsWith('0x')) {
-                alert("تم العثور على العنوان! الرصيد المستحق: 100,000 NAJ\nالعملة مربوطة بالبيتكوين.");
-            } else {
-                alert("جاري البحث في الأرشيف السيادي...");
+                document.getElementById('price').innerText = "$" + parseFloat(data.price).toLocaleString();
+            } catch (e) {
+                document.getElementById('price').innerText = "BTC Market Rate";
             }
         }
-
-        setInterval(updateStats, 5000);
-        updateStats();
+        setInterval(fetchBTC, 5000);
+        fetchBTC();
     </script>
+
+    <footer>
+        <p>Najeeb Network Explorer v2.0 - Premium Edition</p>
+    </footer>
 </body>
 </html>
+EOF
